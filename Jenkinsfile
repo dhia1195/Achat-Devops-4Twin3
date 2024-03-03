@@ -18,14 +18,19 @@ pipeline {
 
 
   stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def mvn = tool 'Default Maven';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=mehdi -Dsonar.projectName='mehdi'"
-    }
-  }
+   stage('SonarQube Analysis') {
+            steps {
+                // Define the location of the SonarQube scanner executable
+                script {
+                    def scannerHome = '/path/to/sonar-scanner'  // Update this with the path to your SonarQube scanner installation
+                    withSonarQubeEnv('SonarQube') {
+                        // Execute the SonarQube scanner with the specified version
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
+
 
     }
 }
