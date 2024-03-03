@@ -15,5 +15,19 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    // Use SonarQube scanner tool configured in Jenkins
+                    def scannerHome = tool 'scanner'
+
+                    // Execute SonarQube scanner
+                    withSonarQubeEnv {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
     }
 }
