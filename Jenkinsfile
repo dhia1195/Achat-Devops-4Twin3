@@ -20,7 +20,7 @@ pipeline {
         sonarQubeScanner 'sonar-scanner'
     }
 
-    stages {
+    
         stage('Checkout') {
             steps {
                 // Checkout your source code
@@ -37,7 +37,7 @@ pipeline {
                     }
                 }
             }
-        }
+        
 
     }
 }
