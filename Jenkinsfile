@@ -15,15 +15,5 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv('scanner') {
-                        sh 'SonargraphReport sonargraphBuildJDK: 'JAVA_HOME''
-                    }
-                }
-            }
-        }
     }
 }
