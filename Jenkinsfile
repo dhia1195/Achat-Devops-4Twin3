@@ -2,25 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('GIT') {
+        stage('MAVEN-CLEAN-COMPILE') {
             steps {
-                           echo 'Pulling code from git . . .'
-                git branch :"mehdi",
-                url:"https://github.com/dhia1195/Achat-Devops-4Twin3.git"
+                sh "mvn clean compile"
             }
         }
-    
-         stage('MAVEN') {
-             steps {
-                 sh "mvn clean compile"
-            }
-        }
-        stage('MVN SONARQUBE'){
+
+        stage('MVN SONARQUBE') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar';
+                sh 'mvn sonar:sonar -Dsonar.projectKey=mehdi -Dsonar.projectName='mehdi''
             }
         }
-       
-      
     }
 }
