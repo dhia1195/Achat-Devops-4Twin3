@@ -5,7 +5,7 @@ pipeline {
         stage('GIT') {
             steps {
                            echo 'Pulling code from git . . .'
-                git branch :"mehdi",
+                git branch :"yousrabacha",
                 url:"https://github.com/dhia1195/Achat-Devops-4Twin3.git"
             }
         }
