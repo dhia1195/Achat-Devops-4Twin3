@@ -16,20 +16,17 @@ pipeline {
             }
         }
 
+stage('SonarQube Analysis') {
+steps{
+script {
+def scannerHome = tool 'scanner'
+withSonarQubeEnv {
+sh "${scannerHome}/bin/sonar-scanner"
+}
+}
+}
+}
 
-  stage('SCM') {
-   stage('SonarQube Analysis') {
-            steps {
-                // Define the location of the SonarQube scanner executable
-                script {
-                    def scannerHome = tool 'scanner'  // Update this with the path to your SonarQube scanner installation
-                    withSonarQubeEnv('SonarQube') {
-                        // Execute the SonarQube scanner with the specified version
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                }
-            }
-        }
 
 
     }
