@@ -8,9 +8,11 @@ pipeline {
             }
         }
 
-        stage('MVN SONARQUBE') {
+        stage('SonarQube Analysis') {
             steps {
-                sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=mehdi'
+                withCredentials([string(credentialsId: 'scanner-sonar', variable: 'SONAR_TOKEN')]) {
+                    sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
+                }
             }
         }
     }
