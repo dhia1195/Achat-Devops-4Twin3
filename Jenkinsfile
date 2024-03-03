@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Use SonarQube scanner tool configured in Jenkins
-                    def scannerHome = tool 'scanner'
+                    def scannerHome = tool 'scanner1'
 
                     // Execute SonarQube scanner
                     withSonarQubeEnv {
