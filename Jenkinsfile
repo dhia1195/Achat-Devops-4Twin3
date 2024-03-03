@@ -24,7 +24,7 @@ pipeline {
 
                     // Execute SonarQube scanner
                     withSonarQubeEnv {
-                        sh 'mvn clean package sonar:sonar'
+                        sh 'mvn compile package sonar:sonar'
                     }
                 }
             }
