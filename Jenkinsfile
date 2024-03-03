@@ -28,7 +28,11 @@ pipeline {
 
                     // Execute SonarQube scanner
                     withSonarQubeEnv {
-                sh "${scannerHome}/bin/sonar-scanner"
+                sh """
+   		${scannerHome}/bin/sonar-scanner \
+   		-Dsonar.projectKey=squ_1304b7836171ca4e15b42348c0300286848f6fca \
+   		-Dsonar.sources=. \
+		"""
                     }
                 }
             }
