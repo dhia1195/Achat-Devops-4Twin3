@@ -40,9 +40,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Cleanup or perform additional actions
-        }
-    }
+   
 }
