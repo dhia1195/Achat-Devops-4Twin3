@@ -15,7 +15,13 @@ pipeline {
                  sh 'mvn compile'
             }
         }
-	 stage('Checkout') {
+	tools {
+        // Define the SonarQube Scanner tool installation
+        sonarQubeScanner 'sonar-scanner'
+    }
+
+    stages {
+        stage('Checkout') {
             steps {
                 // Checkout your source code
                 checkout scm
@@ -25,11 +31,9 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 script {
-                    def scannerHome = tool 'sonar-scanner' // Make sure you have a SonarQube Scanner tool configured in Jenkins
-
-                    // Run SonarQube analysis
+                    // Run SonarQube analysis using the predefined tool installation
                     withSonarQubeEnv('YourSonarQubeServer') {
-                        sh "${scannerHome}/bin/sonar-scanner"
+                        sh 'sonar-scanner'
                     }
                 }
             }
