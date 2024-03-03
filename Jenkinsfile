@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean') {
+        stage('Clean')  {
             steps {
                 // Nettoyer le projet
                 sh 'mvn clean'
