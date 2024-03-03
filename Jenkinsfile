@@ -17,7 +17,7 @@ pipeline {
         }
 	stage('SonarQube Analysis') {
 		steps{
-			withSonarQubeEnv('sonarqube-8.9') {
+			withSonarQubeEnv{
       				sh "mvn sonar:sonar"
     		}
 	}
