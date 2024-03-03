@@ -22,7 +22,7 @@ pipeline {
             steps {
                 // Define the location of the SonarQube scanner executable
                 script {
-                    def scannerHome = '/path/to/sonar-scanner'  // Update this with the path to your SonarQube scanner installation
+                    def scannerHome = tool 'scanner'  // Update this with the path to your SonarQube scanner installation
                     withSonarQubeEnv('SonarQube') {
                         // Execute the SonarQube scanner with the specified version
                         sh "${scannerHome}/bin/sonar-scanner"
