@@ -18,12 +18,8 @@ pipeline {
 
 	stage('SonarQube Analysis') {
 		steps{
-			script {
-				def scannerHome = tool 'scanner'
-				withSonarQubeEnv('sonarqube-8.9') {
-					//sh "${scannerHome}/bin/sonar-scanner"
-					sh "mvn sonar:sonar"
-				}
+			withSonarQubeEnv {
+			sh "mvn sonar:sonar"
 			}
 		}
 	}
