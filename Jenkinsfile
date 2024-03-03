@@ -10,7 +10,7 @@ pipeline {
 
         stage('MVN SONARQUBE') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.projectKey=mehdi -Dsonar.projectName='mehdi''
+                sh 'mvn sonar:sonar -Dsonar.projectKey=mehdii -Dsonar.projectName='mehdii''
             }
         }
     }
