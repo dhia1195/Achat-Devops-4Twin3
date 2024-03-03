@@ -15,13 +15,15 @@ pipeline {
                  sh 'mvn compile'
             }
         }
-	stage('SonarQube analysis') {
-    steps{
-
-    withSonarQubeEnv {
-      sh "mvn clean verify sonar:sonar -Dsonar.projectKey=mehdi -Dsonar.projectName='mehdi'"
-    }
-  }
+	stage('SonarQube Analysis') {
+steps{
+script {
+def scannerHome = tool 'scanner'
+withSonarQubeEnv {
+sh "${scannerHome}/bin/sonar-scanner"
+}
+}
+}
 }
 
 
