@@ -20,7 +20,7 @@ steps{
 script {
 //def scannerHome = tool 'scanner'
 withSonarQubeEnv {
-sh "mvn sonar:sonar"
+sh "mvn clean verify sonar:sonar -Dsonar.projectKey=mehdi -Dsonar.projectName='mehdi'"
 }
 }
 }
