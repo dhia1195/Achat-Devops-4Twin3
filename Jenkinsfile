@@ -15,11 +15,10 @@ pipeline {
                  sh 'mvn compile'
             }
         }
-
 	stage('SonarQube Analysis') {
 		steps{
 			withSonarQubeEnv {
-      				sh "mvn clean verify sonar:sonar 
+      				sh "mvn clean verify sonar:sonar"
     		}
 	}
     
