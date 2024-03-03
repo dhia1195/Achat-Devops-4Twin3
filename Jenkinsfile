@@ -2,26 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean')  {
+        stage('GIT') {
             steps {
-                // Nettoyer le projet
-                sh 'mvn clean'
+                           echo 'Pulling code from git . . .'
+                git branch :"mehdi",
+                url:"https://github.com/dhia1195/Achat-Devops-4Twin3.git"
             }
         }
-
-        
-	stage('MVN SONARQUBE') {
-steps{
-script {
-
-withSonarQubeEnv {
-sh 'mvn clean verify sonar:sonar Dsonar.login=admin -Dsonar.password=sonarqube';
-}
-}
-}
-}
-
-
+    
+         stage('MAVEN') {
+             steps {
+                 sh "mvn clean compile"
+            }
+        }
+        stage('MVN SONARQUBE'){
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonarqube';
+            }
+        }
+       
+      
     }
 }
-	
