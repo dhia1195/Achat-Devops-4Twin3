@@ -2,31 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean') {
+        stage('MAVEN-CLEAN-COMPILE') {
             steps {
-                // Clean the project
-                sh 'mvn clean'
+                sh "mvn clean compile"
             }
         }
 
-        stage('Compiler') {
+        stage('MVN SONARQUBE') {
             steps {
-                // Compile the project with Maven
-                sh 'mvn compile'
-            }
-        }
-
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    // Use SonarQube scanner tool configured in Jenkins
-                    def scannerHome = tool 'scanner'
-
-                    // Execute SonarQube scanner
-                    withSonarQubeEnv {
-                sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                }
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=dhia'
             }
         }
     }
