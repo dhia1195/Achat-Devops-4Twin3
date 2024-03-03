@@ -10,10 +10,10 @@ pipeline {
         }
 
         
-	stage('SonarQube Analysis') {
+	stage('MVN SONARQUBE') {
 steps{
 script {
-//def scannerHome = tool 'scanner'
+
 withSonarQubeEnv {
 sh 'mvn clean verify sonar:sonar Dsonar.login=admin -Dsonar.password=sonarqube';
 }
