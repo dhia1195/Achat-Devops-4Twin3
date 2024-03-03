@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        // Define the SonarQube Scanner tool installation
+        sonarQubeScanner 'YourSonarQubeScannerInstallation'
+    }
+
     stages {
         stage('Clean') {
             steps {
@@ -12,15 +17,10 @@ pipeline {
         stage('Compiler') {
             steps {
                 // Construire le projet avec Maven
-                 sh 'mvn compile'
+                sh 'mvn compile'
             }
         }
-	tools {
-        // Define the SonarQube Scanner tool installation
-        sonarQubeScanner 'sonar-scanner'
-    }
 
-    
         stage('Checkout') {
             steps {
                 // Checkout your source code
@@ -37,8 +37,12 @@ pipeline {
                     }
                 }
             }
-	}
-        
+        }
+    }
 
+    post {
+        always {
+            // Cleanup or perform additional actions
+        }
     }
 }
