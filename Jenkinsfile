@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('scanner') {
-                        sh 'sonar-scanner'
+                        sh 'SonargraphReport sonargraphBuildJDK: 'JAVA_HOME''
                     }
                 }
             }
