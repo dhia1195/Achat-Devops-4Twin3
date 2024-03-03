@@ -4,23 +4,23 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-
+                // Clean the project
                 sh 'mvn clean'
             }
         }
 
         stage('Compiler') {
             steps {
-
+                // Compile the project with Maven
                 sh 'mvn compile'
             }
         }
 
         stage('SonarQube Analysis') {
-                    steps {
-                        script {
-                            withSonarQubeEnv('SonarQube') {
-                                sh 'sonar-scanner'
+            steps {
+                script {
+                    withSonarQubeEnv('scanner') {
+                        sh 'sonar-scanner'
                     }
                 }
             }
