@@ -9,12 +9,7 @@ pipeline {
             }
         }
 
-        stage('Compiler') {
-            steps {
-                // Construire le projet avec Maven
-                 sh 'mvn compile'
-            }
-        }
+        
 	stage('SonarQube Analysis') {
 steps{
 script {
