@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    tools {
-        // Define the SonarQube Scanner tool installation
-        sonarQubeScanner 'YourSonarQubeScannerInstallation'
-    }
+  
 
     stages {
         stage('Clean') {
@@ -21,19 +18,17 @@ pipeline {
             }
         }
 
-        stage('Checkout') {
-            steps {
-                // Checkout your source code
-                checkout scm
-            }
-        }
+        
 
-        stage('SonarQube analysis') {
+       stage('SonarQube Analysis') {
             steps {
                 script {
-                    // Run SonarQube analysis using the predefined tool installation
-                    withSonarQubeEnv('YourSonarQubeServer') {
-                        sh 'sonar-scanner'
+                    // Use SonarQube scanner tool configured in Jenkins
+                    def scannerHome = tool 'scanner'
+
+                    // Execute SonarQube scanner
+                    withSonarQubeEnv {
+                sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
             }
