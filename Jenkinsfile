@@ -15,7 +15,11 @@ pipeline {
                 }
             }
         }
-	
+	stage('MAVEN-DEPLOY') {
+            steps {
+                sh "mvn clean deploy -DskipTests"
+            }
+        }
 
 
     }
