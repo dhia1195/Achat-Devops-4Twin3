@@ -20,6 +20,11 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar';
             }
         }
+ 	stage('MAVEN-DEPLOY') {
+            steps {
+                sh "mvn clean deploy -DskipTests"
+            }
+        }
        
       
     }
