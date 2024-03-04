@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "mvn clean compile"
             }
-        }
+        }	
 
         stage('SonarQube Analysis') {
             steps {
@@ -15,5 +15,12 @@ pipeline {
                 }
             }
         }
+	stage('MAVEN-DEPLOY') {
+            steps {
+                sh "mvn deploy"
+            }
+        }	
+
+
     }
 }
