@@ -20,7 +20,7 @@ pipeline {
        
       
 
-        stage('MAVEN-DEPLOY') {
+        stage('NEXUS') {
             steps {
                 sh "mvn clean deploy -DskipTests";
             }
@@ -28,7 +28,7 @@ pipeline {
 
 stage('Building image'){
             steps{
-              sh  'docker build -t achat/achat:1.0 .'
+              sh  'docker build -t mehdi/achat:1.0 .'
             }
         }
 	
