@@ -27,7 +27,7 @@ pipeline {
         }
      stage('Building image') {
                  steps {
-                     sh "docker build -t azizjellazi/achat-1.0.jar"
+                     sh "docker build -t azizjellazi/achat:1.0.0 ."
                  }
              }
        
