@@ -25,7 +25,7 @@ pipeline {
             stage('Docker build') {
                 steps {
                     script {
-                        sh 'docker build -t dhia2204/achat:1.0.0 .'
+                        sh 'docker build -t dhia2204/achat-1.0.jar .'
                     }
                 }
             }
@@ -35,7 +35,7 @@ pipeline {
                     script {
                         sh '''
                             docker login -u dhia2204 -p dhiaboudali
-                            docker push dhia2204/achat:1.0.0
+                            docker push dhia2204/achat-1.0.jar
                         '''
                     }
                 }
