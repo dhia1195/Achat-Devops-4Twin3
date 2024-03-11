@@ -21,10 +21,6 @@ pipeline {
                 sh "mvn clean deploy -DskipTests"
             }
         }
-	stage("Building image") {
-		steps{
-			
-		}
-	}
+	
     }
 }
