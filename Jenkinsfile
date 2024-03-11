@@ -31,6 +31,13 @@ stage('Building image'){
               sh  'docker build -t spartacus155/achat:1.0 .'
             }
         }
+
+stage ('Deploy Image'){
+           steps{
+               sh '''docker login -u spartacus155 -p 123aze123AZE
+                  docker push spartacus155/achat:1.0'''
+           }
+       }
 	
     }
 }
