@@ -28,7 +28,7 @@ pipeline {
 
 stage('Building image'){
             steps{
-              sh  'docker build -t mehdi/achat:1.0 .'
+              sh  'docker build -t spartacus155/achat:1.0 .'
             }
         }
 	
