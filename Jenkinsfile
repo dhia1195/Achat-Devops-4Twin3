@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "mvn clean compile"
             }
-        }	
+        }
 
         stage('SonarQube Analysis') {
             steps {
@@ -15,16 +15,22 @@ pipeline {
                 }
             }
         }
-	stage('MAVEN-DEPLOY') {
+
+	
+       
+      
+
+        stage('MAVEN-DEPLOY') {
             steps {
-                sh "mvn clean deploy -DskipTests"
+                sh "mvn clean deploy -DskipTests";
             }
         }
-	stage("Building image") {
-		steps{
-			
-		}
-	}
 
+stage('Building image'){
+            steps{
+              sh  'docker build -t achat/achat:1.0 .'
+            }
+        }
+	
     }
 }
