@@ -20,13 +20,27 @@ pipeline {
             steps {
                 sh "mvn clean deploy -DskipTests"
             }
-        }
-        stage('Docker compose') {
-                    steps {
-                        script {
-                            sh 'docker build -t dhia2204/achat-devops:1.0.0 .'
-                        }
-                    }
-                    }
-    }
-}
+       pipeline {
+           agent any
+
+           stages {
+               stage('Docker build') {
+                   steps {
+                       script {
+                           sh 'docker build -t dhia2204/achat:1.0.0 .'
+                       }
+                   }
+               }
+
+               stage('Docker push') {
+                   steps {
+                       script {
+                           sh '''
+                               docker login -u dhia2204 -p dhiaboudali
+                               docker push dhia2204/achat:1.0.0
+                           '''
+                       }
+                   }
+               }
+           }
+       }
