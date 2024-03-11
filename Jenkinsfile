@@ -24,7 +24,7 @@ pipeline {
         stage('Docker compose') {
                     steps {
                         script {
-                            sh 'docker-compose build'
+                            sh 'docker build -t dhia2204/achat-devops:1.0.0'
                         }
                     }
                     }
