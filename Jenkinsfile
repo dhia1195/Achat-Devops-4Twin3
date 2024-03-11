@@ -16,6 +16,14 @@ pipeline {
             }
         }
 
+	stage('Building image'){
+            steps{
+              sh  'docker build -t achat/achat:1.0 .'
+            }
+        }
+       
+      
+
         stage('MAVEN-DEPLOY') {
             steps {
                 sh "mvn clean deploy -DskipTests";
