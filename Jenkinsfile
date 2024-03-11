@@ -25,6 +25,11 @@ pipeline {
                 sh "mvn clean deploy -DskipTests"
             }
         }
+     stage('Building image') {
+                 steps {
+                     sh "docker build -t target/achat-1.0.jar"
+                 }
+             }
        
       
     }
