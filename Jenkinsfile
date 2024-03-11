@@ -16,6 +16,14 @@ pipeline {
             }
         }
 
+        stage('Docker compose') {
+            steps {
+                script {
+                    sh 'docker-compose build'
+                }
+            }
+            }
+
         stage('MAVEN-DEPLOY') {
             steps {
                 sh "mvn clean deploy -DskipTests"
