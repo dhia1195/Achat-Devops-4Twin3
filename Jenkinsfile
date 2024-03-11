@@ -2,37 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean') {
+        stage('MAVEN-CLEAN-COMPILE') {
             steps {
-                // Clean the project
-                sh 'mvn clean'
-            }
-        }
-
-        stage('Compiler') {
-            steps {
-                // Compile the project with Maven
-                sh 'mvn compile'
+                sh "mvn clean compile"
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
-                script {
-                    // Use SonarQube scanner tool configured in Jenkins
-                    def scannerHome = tool 'scanner'
-
-                    // Execute SonarQube scanner
-                    withSonarQubeEnv {
-                sh "${scannerHome}/bin/sonar-scanner"
-                    }
+                withCredentials([string(credentialsId: 'scanner', variable: 'SONAR_TOKEN')]) {
+                    sh 'mvn sonar:sonar -Dsonar.token=$SONAR_TOKEN'
                 }
             }
         }
-	stage('NEXUS'){
-		steps{
-	sh "mvn deploy -DskipTests";
-  		}
-	}
+
+        stage('MAVEN-DEPLOY') {
+            steps {
+                sh "mvn clean deploy -DskipTests"
+            }
+        }
     }
 }
