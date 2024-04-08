@@ -1,0 +1,18 @@
+
+r
+java:S1488"\Immediately return this expression instead of assigning it to the temporary variable "list".(ˆşé
+ƒ
+java:S1488&"hImmediately return this expression instead of assigning it to the temporary variable "categorieProduit".(óÒı†ùÿÿÿÿ
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8½‰©²à1
+P
+java:S6837"3Remove this superfluous "@ResponseBody" annotation.(Ü¥¼8Ó‰©²à1
+P
+java:S6837"3Remove this superfluous "@ResponseBody" annotation.(Ü¥¼8Ó‰©²à1
+P
+java:S6837$"3Remove this superfluous "@ResponseBody" annotation.(Ü¥¼8Ô‰©²à1
+P
+java:S6837,"3Remove this superfluous "@ResponseBody" annotation.(Ü¥¼8Ô‰©²à1
+P
+java:S68373"3Remove this superfluous "@ResponseBody" annotation.(Ü¥¼8Ô‰©²à1
+V	java:S125*"<This block of commented-out lines of code should be removed.(Õ•òüÿÿÿÿ

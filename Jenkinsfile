@@ -40,5 +40,12 @@ pipeline {
                     }
                 }
             }
+             stage('Pull Docker Image') {
+                        steps {
+                            script {
+                                docker.image('openjdk:8-jdk-alpine').pull()
+                            }
+                        }
+                    }
         }
     }
