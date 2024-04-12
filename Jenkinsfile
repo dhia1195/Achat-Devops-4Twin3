@@ -43,9 +43,14 @@ pipeline {
              stage('Pull Docker Image') {
                         steps {
                             script {
-                                docker.image('openjdk:8-jdk-alpine').pull()
+                                docker.image('dhia2204/achat:1.0.0').pull()
                             }
                         }
                     }
+                        stage('Docker Compose') {
+                                steps {
+                                    sh 'docker compose up -d'
+                                }
+                            }
         }
     }
