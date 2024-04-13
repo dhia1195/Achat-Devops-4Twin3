@@ -20,3 +20,17 @@ B
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 f
 6src/main/java/tn/esprit/rh/achat/AchatApplication.java,b\4\b413c620a5bd35e10018a5ab6033974f72b71423
+w
+Gsrc/main/java/tn/esprit/rh/achat/controllers/ProduitRestController.java,4\4\44049d0dceb7e63b9cff4011ee7654aee115e79c
+f
+6src/main/java/tn/esprit/rh/achat/entities/Produit.java,e\2\e2220286d599e5889fd98c23f8c36a95afe2a3cd
+q
+Asrc/main/java/tn/esprit/rh/achat/services/ProduitServiceImpl.java,9\a\9a976e7b2873b2fb8664f51a3a1dd6d5dcbfbecf
+v
+Fsrc/main/java/tn/esprit/rh/achat/services/ISecteurActiviteService.java,0\9\09b7c0d8453e9701a5abb0c1138c8ad523c1a367
+n
+>src/main/java/tn/esprit/rh/achat/services/IProduitService.java,3\5\357a7ad319a6a9d18ab045697ebc493810e006c2
+h
+8src/test/java/tn/esprit/rh/achat/ProduitServiceImpl.java,2\e\2ef5c9f16a7ed438cd5928fcf951274d88bb101b
+l
+<src/test/java/tn/esprit/rh/achat/ProduitServiceImplTest.java,b\0\b0a5ffb6b8680b9ac24606ef984a3c006a7117a4

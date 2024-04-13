@@ -15,6 +15,11 @@ pipeline {
                 }
             }
         }
+        stage('Junit-MOCKITO') {
+                    steps {
+                        sh "mvn test -DskipTests=false"
+                    }
+                }
 
         stage('MAVEN-DEPLOY') {
             steps {
