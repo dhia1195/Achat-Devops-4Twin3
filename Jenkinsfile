@@ -15,7 +15,7 @@ pipeline {
                 }
             }
         }
-        stage('Junit-MOCKITO') {
+        stage('JUNIT-MOCKITO') {
                     steps {
                         sh "mvn test -DskipTests=false"
                     }
