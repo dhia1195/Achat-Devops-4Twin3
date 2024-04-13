@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: dhia2204/frontachat:1.0.0
+    restart: always
+    container_name: frontend
+    ports:
+      - '4600:4600'
