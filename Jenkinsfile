@@ -21,6 +21,13 @@ pipeline {
                 }
             }
         }
+        stage('Docker build') {
+                steps {
+                    script {
+                        sh 'docker build -t dhia2204/achat:1.0.0 .'
+                    }
+                }
+            }
 
         
         stage('Docker push') {
