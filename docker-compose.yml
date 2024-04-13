@@ -7,4 +7,5 @@ services:
     restart: always
     container_name: frontend
     ports:
-      - '4600:4600'
+      - '80:80'
+
