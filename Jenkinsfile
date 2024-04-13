@@ -67,7 +67,7 @@ pipeline {
             }
         }
 
-       stage('Send Email Notification') {
+       stage('Mail') {
                    steps {
                       mail (
                            body: """Summary:
