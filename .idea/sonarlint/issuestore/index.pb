@@ -32,5 +32,3 @@ n
 >src/main/java/tn/esprit/rh/achat/services/IProduitService.java,3\5\357a7ad319a6a9d18ab045697ebc493810e006c2
 l
 <src/test/java/tn/esprit/rh/achat/ProduitServiceImplTest.java,b\0\b0a5ffb6b8680b9ac24606ef984a3c006a7117a4
-?
-application.yml,1\1\1116e8e6e492a185f4df7f55ff557cb2e5ac869a
