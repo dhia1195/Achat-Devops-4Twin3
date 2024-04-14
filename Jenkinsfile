@@ -30,7 +30,30 @@ pipeline {
                      sh "docker build -t azizjellazi/achat:1.0.0 ."
                  }
              }
-       
+        stage('Docker push') {
+                   steps {
+                       script {
+                           sh '''
+                               docker login -u azizjellazi -p aziz28063828
+                               docker push azizjellazi/achat:1.0.0
+                           '''
+                       }
+                   }
+               }
+
+               stage('Pull Docker Image') {
+                   steps {
+                       script {
+                           docker.image('azizjellazi/achat:1.0.0').pull()
+                       }
+                   }
+               }
+
+               stage('Docker Compose') {
+                   steps {
+                       sh 'docker compose up -d'
+                   }
+               }
       
     }
 }
