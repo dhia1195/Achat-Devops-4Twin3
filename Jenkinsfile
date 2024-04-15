@@ -64,6 +64,25 @@ pipeline {
                        sh 'docker compose up -d'
                    }
                }
+                stage('Mail') {
+                                  steps {
+                                     mail (
+                                          body: """Summary:
+                                                  - GIT: Cloned repository
+                                                  - Maven Build: Successfully built the project
+                                                  - SonarQube Analysis: Code analysis completed
+                                                  - Unit Tests: Executed unit tests with Mockito
+                                                  - Nexus Deployment: Deployed artifact to Nexus repository
+                                                  - Build Docker Image: Created Docker image
+                                                  - Push to Docker Hub: Pushed Docker image to Docker Hub
+                                                  - Docker Compose: Deployed services using Docker Compose
+                                                  - Grafana Dashboard: Configured Grafana dashboard""",
+                                          subject: 'Jenkins Job',
+                                          to: 'aziz.jellazi@gmail.com',
+                                          from: 'aziz1.jellazi@gmail.com'
+                                      )
+                                  }
+                       }
       
     }
 }
