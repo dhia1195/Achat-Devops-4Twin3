@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -20,8 +22,12 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
+@SpringBootTest
+@TestMethodOrder(OrderAnnotation.class)
+
 public class ReglementServiceImplTest {
     @Mock
     private FactureRepository factureRepository;
