@@ -22,7 +22,7 @@ pipeline {
         }
          stage('JUNIT-MOCKITO') {
                     steps {
-                        sh "mvn test -Dtest=ReglementServiceImplTtest"
+                        sh "mvn test -DskipTests=false"
                     }
                 }
  	stage('MAVEN-DEPLOY') {
