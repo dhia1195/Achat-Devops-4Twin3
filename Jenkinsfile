@@ -20,6 +20,11 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar';
             }
         }
+         stage('JUNIT-MOCKITO') {
+                    steps {
+                        sh "mvn test -DskipTests=false"
+                    }
+                }
  	stage('MAVEN-DEPLOY') {
             steps {
                 sh "mvn clean deploy -DskipTests"
