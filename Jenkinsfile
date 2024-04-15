@@ -38,6 +38,8 @@ stage ('Deploy Image'){
                   docker push spartacus155/achat:1.0'''
            }
        }
+
+
 	
     }
 }
