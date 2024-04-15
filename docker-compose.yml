@@ -15,15 +15,15 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: emnarah/achat:1.0.0
+    image: emnarah/achat:1.0
     restart: on-failure
     ports:
       - 3306:3306
     environment:
       SPRING_APPLICATION_JSON: '{
-          "spring.datasource.url": "jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true",
+          "spring.datasource.url": "jdbc:mysql://localhost:3306/achatdb?createDatabaseIfNotExist=true",
           "spring.datasource.username": "root",
-          "spring.datasource.password": "root",
+          "spring.datasource.password": "",
           "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQL5InnoDBDialect",
           "spring.jpa.hibernate.ddl-auto": "update"
         }'
