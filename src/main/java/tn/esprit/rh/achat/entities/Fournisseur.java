@@ -43,7 +43,10 @@ public class Fournisseur implements Serializable {
     private Set<SecteurActivite> secteurActivites;
     @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
     private DetailFournisseur detailFournisseur;
-    
 
-	
+
+	public Fournisseur(String f2, String l2, CategorieFournisseur ordinaire) {
+
+
+	}
 }
