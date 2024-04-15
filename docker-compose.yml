@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: emnarah/achat:1.0
+    image: emnarah/achat:1.0.0
     restart: on-failure
     ports:
       - 3306:3306
