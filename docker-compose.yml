@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: dhia2204/achat:1.0.0
+    image: yousrabacha/achat:1.0
     restart: on-failure
     ports:
       - 3306:3306
